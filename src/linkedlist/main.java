@@ -7,6 +7,10 @@ public class main {
         LinkedList linkedList = new LinkedList(3);
         linkedList.printList();
 
+        linkedList.appendFirst(10);
+
+        linkedList.printList();
+
 
     }
 }
