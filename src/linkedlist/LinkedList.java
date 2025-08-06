@@ -11,8 +11,7 @@ public class LinkedList {
         Node next;
 
         public Node (Integer value){
-            value = value;
-            next = null;
+            this.value = value;
         }
     }
 
@@ -30,31 +29,34 @@ public class LinkedList {
         }else if (length == 1) {
             System.err.println(this.head.value);
         }else {
-            int iteration = 0;
-            Node printer = head;
-            while (iteration < length){
-                System.err.println(printer.value);
-                printer = printer.next;
-                iteration ++;
+            Node temp = head;
+            while (temp != null){
+                System.err.println(temp.value);
+                temp = temp.next;
             }
+
         }
 
     }
 
     public void appendFirst(Integer value){
-        Node appendNode = new Node (value);
+        Node newNode = new Node (value);
 
-        if (this.length == 1){
-            head = appendNode;
-            head.next = null;
-        }else {
-            Node nextOfHead = head.next;
-            head = appendNode;
-            head.next = nextOfHead;
+        if (length == 1){
+            Node temp = head;
+            head = newNode;
+            newNode.next = temp;
+            tail = newNode.next;
+            tail.next = null;
         }
 
         length ++;
 
+
+    }
+
+    public Integer size(){
+        return  this.length;
     }
 
 
